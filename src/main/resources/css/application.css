@@ -1,0 +1,18 @@
+@font-face {
+    font-family: Lato;
+    src: url('/fonts/Lato-Bold.ttf');
+}
+
+.maskbuster-logo {
+    -fx-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-family: 'Lato';
+    -fx-font-weight: bold;
+}
+
+.side-menu-items {
+    -fx-fill: white;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 14px;
+    -fx-font-weight: 900;
+}

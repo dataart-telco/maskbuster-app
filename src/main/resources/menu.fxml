@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="553.1" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="320.0" prefWidth="553.1" side="LEFT" stylesheets="@css/settings.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab closable="false" styleClass="video-tab" text="Video">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="33.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tab-content-header" text="Video settings" wrappingWidth="360.89842987060547" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="13.0">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <JFXSlider fx:id="captureIntervalSlider" blockIncrement="1.0" layoutX="150.0" layoutY="73.0" majorTickUnit="1.0" max="15.0" minorTickCount="0" snapToTicks="true" value="1.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="73.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXSlider>
+                        <TextField fx:id="captureIntervalTextField" editable="false" layoutX="346.0" layoutY="62.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="221.0" AnchorPane.leftAnchor="336.1" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="65.0" />
+                        <Label layoutX="37.0" layoutY="179.0" styleClass="setting-item" text="Camera" textFill="WHITE" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="31.1" AnchorPane.rightAnchor="321.0" AnchorPane.topAnchor="120.0" />
+                        <JFXComboBox fx:id="cameraSelection" layoutX="150.0" layoutY="116.0" maxWidth="216.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="116.0" />
+                        <Label layoutX="31.0" layoutY="75.0" styleClass="setting-item" text="Interval" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="71.0" />
+                        <Label layoutX="34.0" layoutY="233.0" styleClass="setting-item" text="Live Stream" textFill="WHITE" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="31.1" AnchorPane.topAnchor="169.0" />
+                        <JFXCheckBox fx:id="liveStream" checkedColor="#8db4bb" layoutX="135.0" layoutY="170.0" mnemonicParsing="false" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="170.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXCheckBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab closable="false" styleClass="alarm-tab" text="Alarm">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tab-content-header" text="Alarm settings" wrappingWidth="360.89842987060547" AnchorPane.leftAnchor="31.1" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="13.0">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Label layoutX="33.0" layoutY="72.0" styleClass="setting-item" text="Duration" AnchorPane.bottomAnchor="229.0" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="72.0" />
+                        <Label layoutX="33.0" layoutY="121.0" styleClass="setting-item" text="Highlight time" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="121.0" />
+                        <JFXSlider fx:id="alarmDurationSlider" blockIncrement="1.0" layoutX="162.0" layoutY="77.0" majorTickUnit="1.0" max="30.0" min="1.0" minorTickCount="0" snapToTicks="true" value="3.0" AnchorPane.bottomAnchor="227.0" AnchorPane.leftAnchor="160.1" AnchorPane.topAnchor="77.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXSlider>
+                        <TextField fx:id="alarmDurationTextField" editable="false" layoutX="338.0" layoutY="66.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="221.0" AnchorPane.leftAnchor="336.1" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="65.0" />
+                        <JFXSlider fx:id="alarmHighlightSlider" blockIncrement="1.0" layoutX="162.0" layoutY="126.0" majorTickUnit="1.0" max="20.0" min="1.0" minorTickCount="0" snapToTicks="true" value="3.0" AnchorPane.leftAnchor="160.1" AnchorPane.topAnchor="126.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXSlider>
+                        <TextField fx:id="alarmHighlightTextField" editable="false" layoutX="338.0" layoutY="115.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="336.1" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="114.0" />
+                        <Label layoutX="31.0" layoutY="176.0" styleClass="setting-item" text="Score threshold" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="31.1" AnchorPane.topAnchor="169.0" />
+                        <JFXSlider fx:id="scoreThresholdSlider" blockIncrement="0.01" layoutX="162.0" layoutY="180.0" majorTickUnit="0.01" max="1.0" min="0.1" minorTickCount="0" snapToTicks="true" value="0.6" AnchorPane.leftAnchor="160.1" AnchorPane.topAnchor="174.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXSlider>
+                        <TextField fx:id="scoreThresholdTextField" editable="false" layoutX="336.1" layoutY="163.0" nodeOrientation="RIGHT_TO_LEFT" styleClass="score-threshold-item" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="336.1" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="163.0" />
+                        <Label layoutX="33.0" layoutY="223.0" styleClass="setting-item" text="Alarm light time" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="31.1" AnchorPane.topAnchor="218.0" />
+                        <JFXSlider fx:id="lightTimeSlider" blockIncrement="1.0" layoutX="160.0" layoutY="233.0" majorTickUnit="1.0" max="15.0" minorTickCount="0" snapToTicks="true" value="1.0" AnchorPane.leftAnchor="160.1" AnchorPane.topAnchor="223.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </JFXSlider>
+                        <TextField fx:id="lightTimeTextField" editable="false" layoutX="337.0" layoutY="223.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="336.1" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="212.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab closable="false" styleClass="interface-tab" text="Interface">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" styleClass="tab-content-header" text="Interface settings" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="33.1" AnchorPane.topAnchor="13.0" />
+                        <Label layoutX="33.0" layoutY="54.0" styleClass="setting-item" text="Capture indicator" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="31.1" AnchorPane.topAnchor="71.0" />
+                        <JFXCheckBox fx:id="captureIndicator" checkedColor="#8db4bb" layoutX="154.0" layoutY="72.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXCheckBox>
+                        <Label layoutX="34.0" layoutY="146.0" styleClass="setting-item" text="Alarm color theme" textFill="WHITE" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="31.1" AnchorPane.topAnchor="120.0" />
+                        <JFXComboBox fx:id="colorChoice" layoutX="165.0" layoutY="116.0" prefHeight="28.0" prefWidth="131.0" promptText="Alert color" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TabPane>
+   </children>
+</AnchorPane>

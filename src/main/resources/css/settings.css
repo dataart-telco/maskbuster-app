@@ -1,0 +1,222 @@
+@font-face {
+    font-family: Lato;
+    src: url('/fonts/Lato-Regular.ttf');
+}
+
+/*---------Tab panel--------*/
+
+.tab *.tab-label {
+    -fx-rotate: 90;
+    -fx-text-fill: #91dbf8;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
+
+.tab {
+    -fx-pref-width: 48px;
+    -fx-pref-height: 137px;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0%;
+    -fx-border-color: rgba(6, 9, 24, 0.2);
+    -fx-border-width: 0 0 0 0.5;
+    -fx-border-style: solid;
+    /*----remove focus highlight---*/
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab:selected {
+    -fx-background-color: rgba(75, 126, 140, 0.2);
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.tab:selected *.tab-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-width: 0 0 0 0;
+}
+
+.tab-header-background {
+    -fx-background-color: rgba(50, 70, 77, 0.8);
+}
+
+.tab-pane:left *.tab-header-area {
+    -fx-padding: 0;
+}
+
+.interface-tab:left .tab-container {
+    -fx-text-alignment: center;
+    -fx-padding: 0 0 0 -12;
+}
+
+.video-tab {
+    -fx-padding: 0 2 0 2;
+}
+
+.alarm-tab {
+    -fx-padding: 0 2 0 3;
+}
+
+/*---------Tab content--------*/
+
+.tab-content-area {
+    -fx-background-color: #32464d;
+}
+
+.tab-content-header {
+    -fx-pref-width: 359px;
+    -fx-pref-height: 29px;
+    -fx-font-size: 24px;
+    -fx-font-weight: 300;
+    -fx-font-family: 'Lato';
+    -fx-font-style: normal;
+    -fx-fill: white;
+    -fx-text-fill: white;
+}
+
+/*---------Setting label--------*/
+
+.setting-item {
+    -fx-text-fill: white;
+    -fx-pref-height: 19px;
+    -fx-font-family: 'Lato';
+    -fx-font-size: 16px;
+}
+
+/*---------Settings sliders--------*/
+
+.jfx-slider {
+    -fx-pref-width: 167px;
+    -fx-pref-height: 4px;
+}
+
+.jfx-slider .thumb {
+    -fx-base: #1dbfb3;
+    -fx-background-insets: 0;
+    -fx-background-color: #1dbfb3, #d1f5e9;
+    -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.5), 2, 0.0, 0, 2);
+}
+
+.jfx-slider .animated-thumb {
+    -fx-background-color: #1dbfb3;
+}
+
+.jfx-slider .animated-thumb .slider-value {
+    -fx-font-family: 'Lato';
+}
+
+.jfx-slider .track {
+    -fx-background-color: #27383e;
+}
+
+/*---------Settings values field--------*/
+
+.text-field {
+    -fx-pref-height: 34px;
+    -fx-pref-width: 48px;
+    -fx-background-color: #27383e;
+    -fx-border-color: #3e565f;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-font-family: 'Lato';
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.score-threshold-item {
+    -fx-padding: 0.33em 0.45em 0.33em 0.38em;
+}
+
+/*---------Settings combo boxes--------*/
+
+.jfx-combo-box {
+    -fx-font-family: 'Lato';
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.jfx-combo-box .list-view {
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+}
+
+.jfx-combo-box .list-cell:filled {
+    -fx-background-color: #8db4bb;
+    -fx-opacity: 0.9;
+}
+
+.jfx-combo-box .cell:selected {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.jfx-combo-box .combo-box-button-container {
+    -fx-background-color: #8db4bb;
+    -fx-border-insets: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.jfx-combo-box .list-view .list-cell:filled:selected {
+    -fx-background-color: #5a737a;
+    -fx-opacity: 1;
+}
+
+.jfx-combo-box .list-view .list-cell:filled:selected .text {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical .track,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical .track-background,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1.5, 0, 0;
+}
+
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical .thumb,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-fill: white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+}
+
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical .increment-button,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-pref-width: 5px;
+}
+
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal .increment-button,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal .decrement-button,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal .increment-arrow,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:horizontal .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical .increment-arrow,
+.jfx-combo-box .list-view .virtual-flow .scroll-bar:vertical .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-shape: " ";
+    -fx-padding: 0;
+}

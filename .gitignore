@@ -1,0 +1,23 @@
+# Image files
+*.jpg
+
+
+
+
+# Log files
+*.log
+
+#Folders
+target/
+pics/
+samples/
+masks/
+
+# IntelliJ IDEA project file
+.idea/
+javafx.iml
+
+# Eclipse project files
+.project
+.classpath
+.settings/

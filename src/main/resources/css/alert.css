@@ -1,0 +1,30 @@
+.root-grid-pane-alert {
+    -fx-background-color: linear-gradient(
+            from 0px -14px to 14px 0px,
+            reflect,
+            #750402 50%,
+            #7c0505 60%
+    );
+}
+
+.root-grid-pane {
+    -fx-background-color:#060918
+}
+
+.root-grid-pane-alert-pink {
+    -fx-background-color: linear-gradient(
+            from 0px -14px to 14px 0px,
+            reflect,
+            #880E4F 50%,
+            #E91E63 60%
+    );
+}
+
+.root-grid-pane-alert-purple {
+    -fx-background-color: linear-gradient(
+            from 0px -14px to 14px 0px,
+            reflect,
+            #4A148C 50%,
+            #9C27B0 60%
+    );
+}
