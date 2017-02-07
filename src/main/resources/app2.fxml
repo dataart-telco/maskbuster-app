@@ -42,7 +42,7 @@
                   <Insets left="12.0" top="13.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="processingLabel" text="capturing">
+            <Label fx:id="processingLabel" prefHeight="17.0" prefWidth="17.0" alignment="CENTER" styleClass="capture-dot" stylesheets="@css/application.css">
                <HBox.margin>
                   <Insets top="16.0" />
                </HBox.margin>

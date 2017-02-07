@@ -39,6 +39,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 
 public class AppController {
+    private static final int CAPTURE_BLINK_LENGTH_MILLIS = 500;
     private final Font latoSemibold_43;
     private final Font latoRegular_16;
     private final Font latoRegular_14;
@@ -144,8 +145,6 @@ public class AppController {
 
         initMenuListener();
         initPopup();
-        processingLabel.setFont(latoRegular_14);
-        processingLabel.setStyle("-fx-background-color: red; -fx-background-radius: 3px;");
         processingLabel.setVisible(false);
         (new CapturingThread(guiProxy)).start();
     }
@@ -429,9 +428,9 @@ public class AppController {
             if (SettingsController.getEnableCaptureIndicator() && message.equals("Capturing an image")) {
                 processingLabel.setVisible(true);
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(CAPTURE_BLINK_LENGTH_MILLIS);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage(), e);
                 }
                 Platform.runLater(() -> processingLabel.setVisible(false));
             }

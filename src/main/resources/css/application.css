@@ -16,3 +16,8 @@
     -fx-font-size: 14px;
     -fx-font-weight: 900;
 }
+
+.capture-dot {
+    -fx-background-color: #ff3331;
+    -fx-background-radius: 100%
+}
