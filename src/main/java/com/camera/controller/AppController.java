@@ -156,7 +156,7 @@ public class AppController {
                 settingsMenu.show(JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.RIGHT, settings.getX(),
                         settings.getY() + 146);
                 settingsMenu.toFront();
-                settings.toFront();
+                Platform.runLater(() -> settings.toFront());
             } else {
                 settingsMenu.close();
             }
@@ -388,7 +388,7 @@ public class AppController {
                     });
                     dartLogo.setImage(logo);
                     digitalClock.setTextFill(Paint.valueOf("#91dbf8"));
-                    settings.setImage(settingsIcon);
+                    settings.setImage(settingsMenu.isVisible() ? activeSettingsIcon : settingsIcon);
                     alertLabel.setVisible(false);
                     alertingInProgress.set(false);
                 });
