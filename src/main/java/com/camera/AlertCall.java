@@ -40,7 +40,9 @@ public class AlertCall {
     	//the idea is to call the number and turn on the light in the same time.
     	Thread callThread = new Thread(this::callNumber);
     	callThread.run();
-    	lightSignal();
+    	Thread lightSignal = new Thread(this::lightSignal);
+    	lightSignal.setDaemon(true);
+    	lightSignal.start();
     	
     	try {
 			callThread.join();
