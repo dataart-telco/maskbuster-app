@@ -23,7 +23,7 @@ public class CapturingThread extends Thread {
 
 	public CapturingThread(GuiProxy guiProxy) {
 		this.guiProxy = guiProxy;
-		this.classifier = new TFClassifier(guiProxy);
+		this.classifier = new TFClassifier();
 		this.setDaemon(true);
 	}
 
@@ -51,7 +51,10 @@ public class CapturingThread extends Thread {
 					guiProxy.writeMessage("Capturing an image");
 					File file = saveImage();
 					guiProxy.writeMessage("Classifying an image");
-					classifier.detect(file.getAbsolutePath());
+					double score = classifier.detect(file.getAbsolutePath());
+					if(score > SettingsController.getScoreThreshold()){
+						guiProxy.maskDetected("Ski mask detected!", file.getAbsolutePath());
+					}
 				}
 			});
 			t.setDaemon(true);

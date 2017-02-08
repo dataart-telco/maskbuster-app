@@ -24,14 +24,10 @@ import com.camera.util.Settings;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TFClassifier implements Classifier {
-    private final GuiProxy writer;
     private HttpClient httpclient = HttpClientBuilder.create().build();
     private ObjectMapper mapper = new ObjectMapper();
     private Logger logger = LoggerFactory.getLogger(TFClassifier.class);
 
-    public TFClassifier(GuiProxy writer) {
-        this.writer = writer;
-    }
 
     @Override
     public double detect(String filename) {
@@ -54,8 +50,7 @@ public class TFClassifier implements Classifier {
 
             List<Map<String, Double>> results = mapper.readValue(body, ArrayList.class);
             for (Map<String, Double> result: results) {
-                if ("ski mask".equals(result.get("name")) && result.get("score") > SettingsController.getScoreThreshold()) {
-                    writer.maskDetected("Ski mask detected!", filename);
+                if ("ski mask".equals(result.get("name"))) {
                     return result.get("score");
                 }
             }
