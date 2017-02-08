@@ -91,14 +91,11 @@ public class AlertCall {
             rqMap.put("frequency", "1");
             rqMap.put("count", String.valueOf(SettingsController.getLightTime()));
             String jsonString = mapper.writeValueAsString(rqMap);
-            logger.info("Light request "+jsonString);
+            logger.info("Light request " + jsonString);
             post.setEntity(new StringEntity(jsonString));
 
             HttpResponse response = client.execute(post);
-            InputStream in = response.getEntity().getContent();
-            body = IOUtils.toString(in, "UTF-8");
-            logger.info("Light response"+body);
-            
+            logger.info("Light response " + response);
         } catch (IOException e) {
         	guiProxy.writeMessage("ERROR: Can not turn the light on.");
         	logger.error(e.getMessage(), e);
