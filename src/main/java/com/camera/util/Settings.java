@@ -41,14 +41,6 @@ public class Settings {
         }
     }
 
-    public static String classifierId() {
-        return props.getProperty("classifier_id");
-    }
-
-    public static String apiKey() {
-        return props.getProperty("api_key");
-    }
-
     public static String callFrom() {
         return props.getProperty("call_from");
     }
@@ -87,10 +79,6 @@ public class Settings {
     
     public static String imageFormat() {
         return props.getProperty("image_format");
-    }
-
-    public static boolean isLinuxWorkaround() {
-        return "true".equals(props.getProperty("linux_workaround"));
     }
 
     public static String alarmColorTheme() {

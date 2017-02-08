@@ -13,7 +13,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import jersey.repackaged.jsr166e.extra.AtomicDouble;
 
 import java.text.DecimalFormat;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -26,7 +25,7 @@ public class SettingsController {
     private static AtomicBoolean enableVideoStreaming = new AtomicBoolean(Settings.getLiveStream());
     private static AtomicBoolean enableCaptureIndicator = new AtomicBoolean(Settings.captureIndicator());
     private static AtomicInteger lightTime = new AtomicInteger(Settings.lightServiceCount());
-    private static AtomicDouble scoreThreshold = new AtomicDouble(Settings.scoreThreshold());
+    private static double scoreThreshold = Settings.scoreThreshold();
 
     @FXML
     private JFXComboBox<WebCamInfo> cameraSelection;
@@ -75,7 +74,7 @@ public class SettingsController {
     }
 
     public static double getScoreThreshold() {
-        return scoreThreshold.get();
+        return scoreThreshold;
     }
 
     public static Boolean getEnableCaptureIndicator() {
@@ -185,7 +184,7 @@ public class SettingsController {
         );
         double threshold = Settings.scoreThreshold();
         if (threshold > 0) {
-            SettingsController.scoreThreshold.set(threshold);
+            SettingsController.scoreThreshold = threshold;
             scoreThresholdSlider.setValue(threshold);
             scoreThresholdTextField.setText(String.valueOf(threshold));
         }
@@ -195,7 +194,7 @@ public class SettingsController {
                 scoreThresholdTextField.setText(String.valueOf(new DecimalFormat(
                         newValue.doubleValue() == 1.0 ? "#.#" : "#.##"
                 ).format(newValue.doubleValue())));
-                SettingsController.scoreThreshold.set(newValue.doubleValue());
+                SettingsController.scoreThreshold = newValue.doubleValue();
             }
         });
     }
