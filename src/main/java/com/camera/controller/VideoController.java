@@ -27,20 +27,20 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.VBox;
 
 public class VideoController extends VBox {
-	
+
 	private final Logger logger = LoggerFactory.getLogger(VideoController.class);
 
     private final ImageView videoImageView;
     private Webcam webCam;
     private final ObjectProperty<Image> imageProperty;
-	
+
     public VideoController() {
 		this.videoImageView = new CustomImageView();
 		this.imageProperty = new SimpleObjectProperty<Image>();
 		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/video.fxml"));
          fxmlLoader.setRoot(this);
          fxmlLoader.setController(this);
-        
+
          try {
              fxmlLoader.load();
          } catch (IOException exception) {
@@ -54,7 +54,7 @@ public class VideoController extends VBox {
 		this.getChildren().add(videoImageView);
 		initializeWebCam(0);
 	}
-	
+
 	protected void setImageViewSize() {
 
 		double height = this.getHeight();
@@ -68,7 +68,7 @@ public class VideoController extends VBox {
 		videoImageView.setPreserveRatio(true);
 
 	}
-	
+
 	public void initializeWebCam(final int webCamIndex) {
 
 		Task<Void> webCamTask = new Task<Void>() {
@@ -98,11 +98,11 @@ public class VideoController extends VBox {
 		webCamThread.start();
 
 	}
-	
+
 	protected void disposeWebCamCamera() {
 		webCam.close();
 	}
-	
+
 	protected void startWebCamStream() {
 
 		Platform.runLater(this::setImageViewSize);
@@ -116,13 +116,13 @@ public class VideoController extends VBox {
 
 				while (true) {
 					try {
-						
+
 						if(!SettingsController.getEnableVideoStreaming()){
 							img = CapturingThread.getCapturedImage();
 						}else{
 							img = webCam.getImage();
 						}
-						
+
 						if ( img != null) {
 							ref.set(SwingFXUtils.toFXImage(img, ref.get()));
 							img.flush();
@@ -150,5 +150,5 @@ public class VideoController extends VBox {
 		this.webCam = webCam;
 	}
 
-	
+
 }

@@ -2,6 +2,7 @@ package com.camera;
 
 import java.io.IOException;
 
+import com.camera.controller.SettingsController;
 import com.camera.util.Settings;
 
 import javafx.application.Application;
@@ -14,6 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        stage.setOnCloseRequest(event -> SettingsController.setEnableVideoStreaming(false));
         Settings.load();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app2.fxml"));
         Parent root = loader.load();

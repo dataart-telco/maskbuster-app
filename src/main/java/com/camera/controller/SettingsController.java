@@ -14,6 +14,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
@@ -67,6 +70,10 @@ public class SettingsController {
 
     public static boolean getEnableVideoStreaming() {
         return enableVideoStreaming.get();
+    }
+
+    public static void setEnableVideoStreaming(Boolean enableVideoStreaming) {
+        SettingsController.enableVideoStreaming.set(enableVideoStreaming);
     }
 
     public static int getLightTime() {
