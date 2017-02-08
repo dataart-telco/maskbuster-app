@@ -33,7 +33,9 @@ public class CapturingThread extends Thread {
 		try {
 			if (guiProxy.getWebCam() != null) {
 				capturedImage = guiProxy.getWebCam().getImage();
-				ImageIO.write(capturedImage, Settings.imageFormat(), file);
+                if (capturedImage != null) {
+                    ImageIO.write(capturedImage, Settings.imageFormat(), file);
+                }
 			}
 		} catch (IOException e) {
 			logger.error(e.getMessage(), e);
@@ -44,19 +46,15 @@ public class CapturingThread extends Thread {
 	@Override
 	public void run() {
 		while (true) {
-			Thread t = new Thread(new Runnable() {
-				
-				@Override
-				public void run() {
-					guiProxy.writeMessage("Capturing an image");
-					File file = saveImage();
-					guiProxy.writeMessage("Classifying an image");
-					double score = classifier.detect(file.getAbsolutePath());
-					if(score > SettingsController.getScoreThreshold()){
-						guiProxy.maskDetected("Ski mask detected!", file.getAbsolutePath());
-					}
-				}
-			});
+			Thread t = new Thread(() -> {
+                guiProxy.writeMessage("Capturing an image");
+                File file = saveImage();
+                guiProxy.writeMessage("Classifying an image");
+                double score = classifier.detect(file.getAbsolutePath());
+                if(score > SettingsController.getScoreThreshold()){
+                    guiProxy.maskDetected("Ski mask detected!", file.getAbsolutePath());
+                }
+            });
 			t.setDaemon(true);
 			t.start();
 			
