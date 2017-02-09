@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.camera.controller.SettingsController;
 import com.camera.util.GuiProxy;
 import com.camera.util.Settings;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,7 +40,7 @@ public class TFClassifier implements Classifier {
         try {
             HttpPost postRequest = new HttpPost("http://" + Settings.tensorflowAppServer() + "/visual-recognition/classify");
 
-            FileBody bin = new FileBody(new File(filename)); 
+            FileBody bin = new FileBody(new File(filename));
             HttpEntity reqEntity = MultipartEntityBuilder.create()
                     .addPart("file", bin)
                     .build();
@@ -67,6 +67,8 @@ public class TFClassifier implements Classifier {
                 guiProxy.writeMessage("ERROR: classifier service error");
             } else if (e instanceof JsonParseException) {
                 guiProxy.writeMessage("ERROR: bad classifier response");
+            } else if (e instanceof UnknownHostException) {
+                guiProxy.writeMessage("ERROR: classifier unknown host");
             }
             logger.error("", e);
             return 0.0;
