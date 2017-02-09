@@ -202,7 +202,7 @@ public class AppController {
                 rotateTransition.setByAngle(-ROTATION_ANGLE);
                 rotateTransition.play();
                 settings.setImage(alertingInProgress.get() ? alertSettingIcon : settingsIcon);
-                settingsMenu.close();
+             //   settingsMenu.close();
             }
         });
     }
