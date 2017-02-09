@@ -149,19 +149,20 @@ public class AppController {
         (new CapturingThread(guiProxy)).start();
     }
 
-    @FXML
-    void openSettingsMenu(MouseEvent event) {
-        if (event.getButton() == MouseButton.PRIMARY) {
-            if (!settingsMenu.isVisible()) {
-                settingsMenu.show(JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.RIGHT, settings.getX(),
-                        settings.getY() + 146);
-                settingsMenu.toFront();
-                Platform.runLater(() -> settings.toFront());
-            } else {
-                settingsMenu.close();
-            }
-        }
-    }
+	@FXML
+	void openSettingsMenu(MouseEvent event) {
+		Platform.runLater(() -> {
+			if (event.getButton() == MouseButton.PRIMARY) {
+				if (!settingsMenu.isVisible()) {
+					settingsMenu.show(JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.RIGHT, settings.getX(),
+							settings.getY() + 146);
+					settings.toFront();
+				} else {
+					settingsMenu.setVisible(false);
+				}
+			}
+		});
+	}
 
     /**
      * Loads popup content and configure it
@@ -184,6 +185,7 @@ public class AppController {
         rootPane.layoutBoundsProperty().addListener((observable, oldValue, newValue) -> {
             if (settingsMenu.isVisible()) {
                 settingsMenu.close();
+                System.out.println("EVENT");
             }
         });
     }

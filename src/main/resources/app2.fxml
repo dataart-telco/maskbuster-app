@@ -15,7 +15,7 @@
 
 <?import com.camera.fx.DigitalClock?>
 
-<GridPane fx:id="rootPane" minHeight="569.0" minWidth="878.0" prefHeight="569.0" prefWidth="878.0" style="-fx-background-color:#060918" stylesheets="@css/alert.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.camera.controller.AppController">
+<GridPane fx:id="rootPane" minHeight="569.0" minWidth="878.0" prefHeight="569.0" prefWidth="878.0" style="-fx-background-color:#060918" stylesheets="@css/alert.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.camera.controller.AppController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="491.0" />
       <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="270.0" prefWidth="270.0" />
