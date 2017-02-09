@@ -189,7 +189,6 @@ public class AppController {
         rootPane.layoutBoundsProperty().addListener((observable, oldValue, newValue) -> {
             if (settingsMenu.isVisible()) {
                 settingsMenu.close();
-                System.out.println("EVENT");
             }
         });
     }

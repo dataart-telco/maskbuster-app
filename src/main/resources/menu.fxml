@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="553.1" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="553.1" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TabPane prefHeight="320.0" prefWidth="553.1" side="LEFT" stylesheets="@css/settings.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -39,7 +39,7 @@
                         <JFXComboBox fx:id="cameraSelection" layoutX="150.0" layoutY="116.0" maxWidth="216.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="116.0" />
                         <Label layoutX="31.0" layoutY="75.0" styleClass="setting-item" text="Interval" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="71.0" />
                         <Label layoutX="34.0" layoutY="233.0" styleClass="setting-item" text="Live Stream" textFill="WHITE" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="31.1" AnchorPane.topAnchor="169.0" />
-                        <JFXCheckBox fx:id="liveStream" checkedColor="#8db4bb" layoutX="135.0" layoutY="170.0" mnemonicParsing="false" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="170.0">
+                        <JFXCheckBox fx:id="liveStream" checkedColor="#8db4bb" layoutX="140.0" layoutY="170.0" mnemonicParsing="false" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="170.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></JFXCheckBox>
