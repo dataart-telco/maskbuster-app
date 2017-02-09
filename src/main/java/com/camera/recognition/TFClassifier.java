@@ -3,10 +3,12 @@ package com.camera.recognition;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,7 +29,11 @@ public class TFClassifier implements Classifier {
     private HttpClient httpclient = HttpClientBuilder.create().build();
     private ObjectMapper mapper = new ObjectMapper();
     private Logger logger = LoggerFactory.getLogger(TFClassifier.class);
+    private GuiProxy guiProxy;
 
+    public TFClassifier(GuiProxy guiProxy) {
+        this.guiProxy = guiProxy;
+    }
 
     @Override
     public double detect(String filename) {
@@ -57,6 +63,11 @@ public class TFClassifier implements Classifier {
             return 0.0;
 
         }catch(IOException e ) {
+            if (e instanceof SocketException) {
+                guiProxy.writeMessage("ERROR: classifier service error");
+            } else if (e instanceof JsonParseException) {
+                guiProxy.writeMessage("ERROR: bad classifier response");
+            }
             logger.error("", e);
             return 0.0;
         }

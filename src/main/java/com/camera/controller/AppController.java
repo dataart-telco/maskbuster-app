@@ -2,6 +2,7 @@ package com.camera.controller;
 
 import com.camera.AlertCall;
 import com.camera.fx.DigitalClock;
+import com.camera.recognition.TFClassifier;
 import com.camera.thread.CapturingThread;
 import com.camera.util.AlarmColors;
 import com.camera.util.DatetimeUtils;
@@ -53,6 +54,7 @@ public class AppController {
     private final Image cameraIcon;
     private final GuiProxy guiProxy;
     private final AlertCall alertCall;
+    private final TFClassifier tfClassifier;
     private final VBox logBox;
     private final VBox captureBox;
     private final AtomicBoolean alertingInProgress;
@@ -102,6 +104,7 @@ public class AppController {
     public AppController() {
         this.guiProxy = new GuiProxyImpl();
         this.alertCall = new AlertCall(guiProxy);
+        this.tfClassifier = new TFClassifier(guiProxy);
         this.logBox = new VBox();
         this.captureBox = new VBox();
         this.alertingInProgress = new AtomicBoolean(false);
