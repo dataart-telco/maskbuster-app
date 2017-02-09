@@ -149,6 +149,7 @@ public class AppController {
         initMenuListener();
         initPopup();
         processingLabel.setVisible(false);
+        settings.toFront();
         (new CapturingThread(guiProxy)).start();
     }
 
