@@ -23,7 +23,7 @@ public class CapturingThread extends Thread {
 
 	public CapturingThread(GuiProxy guiProxy) {
 		this.guiProxy = guiProxy;
-		this.classifier = new TFClassifier();
+		this.classifier = new TFClassifier(guiProxy);
 		this.setDaemon(true);
 	}
 
