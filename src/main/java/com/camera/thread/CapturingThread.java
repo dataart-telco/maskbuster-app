@@ -30,6 +30,7 @@ public class CapturingThread extends Thread {
 
 	private File saveImage() {
 		File file = new File(Settings.imagePath() + "/capture." + Settings.imageFormat());
+		file.getParentFile().mkdirs();
 		try {
 			if (guiProxy.getWebCam() != null && guiProxy.getWebCam().isOpen()) {
 				capturedImage = guiProxy.getWebCam().getImage();
