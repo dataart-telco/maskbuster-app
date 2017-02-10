@@ -92,7 +92,7 @@ public class Settings {
     public static Long alarmDuration() {
         return Long.parseLong(props.getProperty("alarm_duration", "5"));
     }
-    
+
     public static boolean getLiveStream(){
         return Boolean.parseBoolean(props.getProperty("liveStream"));
     }
@@ -118,7 +118,7 @@ public class Settings {
     }
 
     public static String getLogFilePath() {
-        return props.getProperty("log_file_path", "logs/camera.log");
+        return props.getProperty("log_file");
     }
 
 }
