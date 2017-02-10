@@ -117,4 +117,8 @@ public class Settings {
         return "true".equals(String.valueOf(props.getProperty("capture_indicator", "true")));
     }
 
+    public static String getLogFilePath() {
+        return props.getProperty("log_file_path", "logs/camera.log");
+    }
+
 }
