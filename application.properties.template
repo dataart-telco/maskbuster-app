@@ -25,3 +25,6 @@ highlight_duration=5
 
 #log file path
 log_file=log4j.properties
+
+#capture.jpg image path
+image_path=.

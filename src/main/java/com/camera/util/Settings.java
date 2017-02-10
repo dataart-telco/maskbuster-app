@@ -121,4 +121,7 @@ public class Settings {
         return props.getProperty("log_file");
     }
 
+    public static String imagePath() {
+        return props.getProperty("image_path");
+    }
 }
