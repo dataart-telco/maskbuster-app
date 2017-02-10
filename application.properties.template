@@ -24,4 +24,4 @@ liveStream=false
 highlight_duration=5
 
 #log file path
-log_file=C:\\log4j_config\\log4j.properties
+log_file=log4j.properties
