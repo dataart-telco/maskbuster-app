@@ -17,7 +17,7 @@ public class Settings {
 
         String snapUserData = System.getenv("SNAP_USER_DATA");
         try {
-            if (snapUserData != null) {
+            if (snapUserData != null && !snapUserData.isEmpty()) {
                 input = new FileInputStream(snapUserData + File.pathSeparator + "application.properties");
             } else {
                 input = new FileInputStream("application.properties");
