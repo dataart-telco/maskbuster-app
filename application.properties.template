@@ -15,6 +15,7 @@ masks_dir=masks
 image_format=jpg
 
 light_service_url=http://lightservice.net/api/pwm/control
+light_service_url2=http://flashlight2.vrn.dataart.net/api/pwm/control
 light_service_key=[serviceKey]
 light_service_count=3
 

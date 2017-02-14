@@ -41,9 +41,14 @@ public class AlertCall {
     	//the idea is to call the number and turn on the light in the same time.
     	Thread callThread = new Thread(this::callNumber);
     	callThread.run();
-    	Thread lightSignal = new Thread(this::lightSignal);
-    	lightSignal.setDaemon(true);
-    	lightSignal.start();
+
+        Thread lightSignal1 = new Thread(this::lightSignal1);
+    	lightSignal1.setDaemon(true);
+    	lightSignal1.start();
+        Thread lightSignal2 = new Thread(this::lightSignal2);
+        lightSignal2.setDaemon(true);
+        lightSignal2.start();
+
         Thread salesForce = new Thread(this::salesForce);
         salesForce.setDaemon(true);
         salesForce.start();
@@ -81,11 +86,19 @@ public class AlertCall {
         	logger.error(e.getMessage(), e);
         }
     }
-    
-    private void lightSignal(){
+
+    private void lightSignal1() {
+        lightSignal(Settings.lightServiceUrl());
+    }
+
+    private void lightSignal2() {
+        lightSignal(Settings.lightServiceUrl2());
+    }
+
+    private void lightSignal(String url) {
         String body = "";
         try {
-            HttpPost post = new HttpPost(Settings.lightServiceUrl());
+            HttpPost post = new HttpPost(url);
             post.addHeader(HttpHeaders.AUTHORIZATION, "Bearer " + Settings.lightServiceKey());
             post.addHeader(HttpHeaders.CONTENT_TYPE, "application/json");
 

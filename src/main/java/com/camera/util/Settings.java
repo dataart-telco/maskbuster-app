@@ -112,7 +112,11 @@ public class Settings {
     public static String lightServiceUrl() {
         return String.valueOf(props.getProperty("light_service_url"));
     }
-    
+
+    public static String lightServiceUrl2() {
+        return String.valueOf(props.getProperty("light_service_url2"));
+    }
+
     public static String lightServiceKey() {
         return String.valueOf(props.getProperty("light_service_key"));
     }
