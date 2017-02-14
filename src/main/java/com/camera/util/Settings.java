@@ -61,6 +61,14 @@ public class Settings {
         return props.getProperty("restcomm_client");
     }
 
+    public static String restcommAcount() {
+        return props.getProperty("restcomm_account");
+    }
+
+    public static String restcommApp() {
+        return props.getProperty("restcomm_app");
+    }
+
     public static String tensorflowAppServer() {
         return props.getProperty("tensorflow_app_server");
     }

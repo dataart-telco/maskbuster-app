@@ -58,12 +58,12 @@ public class AlertCall {
     private void callNumber(){
         String body = "";
         try {
-            HttpPost post = new HttpPost(String.format("http://" + Settings.restcommServer() + "/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls.json"));
+            HttpPost post = new HttpPost(String.format("http://" + Settings.restcommServer() + "/restcomm/2012-04-24/Accounts/" + Settings.restcommAcount() + "/Calls.json"));
 
             List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
             urlParameters.add(new BasicNameValuePair("From", Settings.callFrom()));
             urlParameters.add(new BasicNameValuePair("To", "client:" + Settings.restcommClient()));
-            urlParameters.add(new BasicNameValuePair("Url", "http://" + Settings.restcommServer() + "/restcomm-rvd/services/apps/AP5bbdd3fe899647949f2daad06d0d7af0/controller")); //http://185.76.104.82:8080/restcomm/demos/hello-play.xml
+            urlParameters.add(new BasicNameValuePair("Url", "http://" + Settings.restcommServer() + "/restcomm-rvd/services/apps/" + Settings.restcommApp() + "/controller")); //http://185.76.104.82:8080/restcomm/demos/hello-play.xml
 
             String auth = Settings.restcommUser() + ":" + Settings.restcommPassword();
             byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("ISO-8859-1")));

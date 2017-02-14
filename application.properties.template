@@ -6,6 +6,8 @@ restcomm_client=[client]
 restcomm_server=[host]:[port]
 restcomm_username=[username]
 restcomm_password=[password]
+restcomm_account=ACae6e420f425248d6a26948c17a9e2acf
+restcomm_app=AP5bbdd3fe899647949f2daad06d0d7af0
 
 score_threshold=0.6
 
