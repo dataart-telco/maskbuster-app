@@ -28,3 +28,8 @@ log_file=log4j.properties
 
 #capture.jpg image path
 image_path=.
+
+#salesforce
+salesforce_url=https://ingestion-jugygg6zny2u.us3.sfdcnow.com/streams/thunderlightningf001/thunderlightningf001/event
+salesforce_token=[token]
+salesforce_phone=188888888

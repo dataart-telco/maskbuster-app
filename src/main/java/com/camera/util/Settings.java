@@ -124,4 +124,16 @@ public class Settings {
     public static String imagePath() {
         return props.getProperty("image_path");
     }
+
+    public static String salesforceToken() {
+        return props.getProperty("salesforce_token");
+    }
+
+    public static String salesforcePhone() {
+        return props.getProperty("salesforce_phone");
+    }
+
+    public static String salesforceUrl() {
+        return props.getProperty("salesforce_url");
+    }
 }

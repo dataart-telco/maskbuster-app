@@ -30,6 +30,7 @@ public class AlertCall {
 	
 	private final Logger logger = LoggerFactory.getLogger(AlertCall.class);
     private HttpClient client = HttpClientBuilder.create().build();
+    private final ObjectMapper mapper = new ObjectMapper();
     private final GuiProxy guiProxy;
     
     public AlertCall(GuiProxy guiProxy) {
@@ -43,6 +44,9 @@ public class AlertCall {
     	Thread lightSignal = new Thread(this::lightSignal);
     	lightSignal.setDaemon(true);
     	lightSignal.start();
+        Thread salesForce = new Thread(this::salesForce);
+        salesForce.setDaemon(true);
+        salesForce.start();
     	
     	try {
 			callThread.join();
@@ -84,7 +88,7 @@ public class AlertCall {
             HttpPost post = new HttpPost(Settings.lightServiceUrl());
             post.addHeader(HttpHeaders.AUTHORIZATION, "Bearer " + Settings.lightServiceKey());
             post.addHeader(HttpHeaders.CONTENT_TYPE, "application/json");
-            
+
             ObjectMapper mapper = new ObjectMapper();
             Map<String, String> rqMap = new HashMap<String, String>(); 
             rqMap.put("0", "100");
@@ -101,5 +105,28 @@ public class AlertCall {
         	logger.error(e.getMessage(), e);
         }
     }
-    
+
+    private void salesForce() {
+        try {
+            HttpPost post = new HttpPost(Settings.salesforceUrl());
+            post.addHeader(HttpHeaders.AUTHORIZATION, "Bearer " + Settings.salesforceToken());
+            post.addHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+
+            Map<String, String> rqMap = new HashMap<String, String>();
+            rqMap.put("guid", "healthcheck123");
+            rqMap.put("asset", "alcove2");
+            rqMap.put("model", "device3");
+            rqMap.put("errorcode", "");
+            rqMap.put("enterprise", "service_unreachable");
+            rqMap.put("objectType", Settings.salesforcePhone());
+            String jsonString = mapper.writeValueAsString(rqMap);
+            post.setEntity(new StringEntity(jsonString));
+
+            HttpResponse response = client.execute(post);
+            logger.info("Salesforce response " + response);
+        } catch (IOException e) {
+            guiProxy.writeMessage("ERROR: Can not turn the light on.");
+            logger.error(e.getMessage(), e);
+        }
+    }
 }
