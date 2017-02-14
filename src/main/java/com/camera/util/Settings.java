@@ -2,6 +2,7 @@ package com.camera.util;
 
 import javafx.scene.control.Alert;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,8 +14,15 @@ public class Settings {
 
     public static void load() {
         InputStream input = null;
+
+        String snapUserData = System.getenv("SNAP_USER_DATA");
         try {
-            input = new FileInputStream("application.properties");
+            if (snapUserData != null) {
+                input = new FileInputStream(snapUserData + File.pathSeparator + "application.properties");
+            } else {
+                input = new FileInputStream("application.properties");
+            }
+
             props.load(input);
 
         } catch (FileNotFoundException ex) {
