@@ -15,10 +15,11 @@ public class Settings {
     public static void load() {
         InputStream input = null;
 
-        String snapUserData = System.getenv("SNAP_USER_DATA");
+        String userDataVar = System.getenv("SNAP_USER_DATA");
+        File userDataFile = new File(((userDataVar != null) ? userDataVar : "") + File.pathSeparator + "application.properties");
         try {
-            if (snapUserData != null && !snapUserData.isEmpty()) {
-                input = new FileInputStream(snapUserData + File.pathSeparator + "application.properties");
+            if (userDataVar != null && !userDataVar.isEmpty() && userDataFile.exists()) {
+                input = new FileInputStream(userDataFile);
             } else {
                 input = new FileInputStream("application.properties");
             }
