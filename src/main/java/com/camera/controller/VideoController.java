@@ -29,7 +29,7 @@ public class VideoController extends VBox {
     //private final ObjectProperty<Image> imageProperty;
 
     public VideoController() {
-		this.imageProperty = new SimpleObjectProperty<Image>();
+		//this.imageProperty = new SimpleObjectProperty<Image>();
 		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/video.fxml"));
          fxmlLoader.setRoot(this);
          fxmlLoader.setController(this);
