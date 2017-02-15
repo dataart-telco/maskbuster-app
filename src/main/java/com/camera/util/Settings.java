@@ -26,12 +26,12 @@ public class Settings {
             props.load(input);
 
         } catch (FileNotFoundException ex) {
+            System.out.println("File application.properties doesn't exist");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("File application.properties doesn't exist");
             alert.showAndWait();
-            System.out.println("File application.properties doesn't exist");
             System.exit(1);
 
         } catch (IOException ex) {
