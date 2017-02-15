@@ -1,46 +1,38 @@
 package com.camera.controller;
 
 import java.awt.Dimension;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicReference;
 
+import com.github.sarxos.webcam.WebcamPanel;
+import javafx.embed.swing.SwingNode;
 import javafx.geometry.Pos;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.camera.fx.CustomImageView;
-import com.camera.thread.CapturingThread;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 
-import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Task;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.VBox;
 
 public class VideoController extends VBox {
 
 	private final Logger logger = LoggerFactory.getLogger(VideoController.class);
 
-    private final ImageView videoImageView;
     private Webcam webCam;
-    private final ObjectProperty<Image> imageProperty;
+	private SwingNode swingNode = new SwingNode();
+    //private final ObjectProperty<Image> imageProperty;
 
     public VideoController() {
-		this.videoImageView = new CustomImageView();
 		this.imageProperty = new SimpleObjectProperty<Image>();
 		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/video.fxml"));
          fxmlLoader.setRoot(this);
          fxmlLoader.setController(this);
-
          try {
              fxmlLoader.load();
          } catch (IOException exception) {
@@ -49,23 +41,24 @@ public class VideoController extends VBox {
 	}
 
 	@FXML
-	public void initialize(){
-        this.setAlignment(Pos.CENTER);
-		this.getChildren().add(videoImageView);
+	public void initialize() {
 		initializeWebCam(0);
+
+        this.setAlignment(Pos.CENTER);
+		this.getChildren().add(swingNode);
 	}
 
 	protected void setImageViewSize() {
 
 		double height = this.getHeight();
 		double width = this.getWidth();
-		int scaleFactor = 1;
+//		int scaleFactor = 1;
 
-		videoImageView.setFitHeight(Math.floor(height * scaleFactor));
-		videoImageView.setFitWidth(Math.floor(width * scaleFactor));
-		videoImageView.prefHeight(Math.floor(height * scaleFactor));
-		videoImageView.prefWidth(Math.floor(width * scaleFactor));
-		videoImageView.setPreserveRatio(true);
+//		videoImageView.setFitHeight(Math.floor(height * scaleFactor));
+//		videoImageView.setFitWidth(Math.floor(width * scaleFactor));
+//		videoImageView.prefHeight(Math.floor(height * scaleFactor));
+//		videoImageView.prefWidth(Math.floor(width * scaleFactor));
+//		videoImageView.setPreserveRatio(true);
 
 	}
 
@@ -104,7 +97,7 @@ public class VideoController extends VBox {
 	}
 
 	protected void startWebCamStream() {
-
+	/*
 		Platform.runLater(this::setImageViewSize);
 
 		Task<Void> task = new Task<Void>() {
@@ -138,8 +131,15 @@ public class VideoController extends VBox {
 		Thread th = new Thread(task);
 		th.setDaemon(true);
 		th.start();
-		videoImageView.imageProperty().bind(imageProperty);
 
+		videoImageView.imageProperty().bind(imageProperty);
+		*/
+		WebcamPanel panel = new WebcamPanel(webCam);
+		//panel.setFPSDisplayed(true);
+		//panel.setDisplayDebugInfo(true);
+		//panel.setImageSizeDisplayed(true);
+		//panel.setMirrored(true);
+		swingNode.setContent(panel);
 	}
 
 	public Webcam getWebCam() {
