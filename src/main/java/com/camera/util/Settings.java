@@ -21,18 +21,15 @@ public class Settings {
             if (userDataVar != null && !userDataVar.isEmpty() && userDataFile.exists()) {
                 input = new FileInputStream(userDataFile);
             } else {
-                input = new FileInputStream("application.properties");
+                userDataFile = new File("application.properties");
+                input = new FileInputStream(userDataFile);
             }
 
             props.load(input);
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File application.properties doesn't exist");
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("File application.properties doesn't exist");
-            alert.showAndWait();
+            System.out.println("File " + userDataFile.getAbsolutePath() + " doesn't exist");
+            //Message.error("File application.properties doesn't exist");
             System.exit(1);
 
         } catch (IOException ex) {
