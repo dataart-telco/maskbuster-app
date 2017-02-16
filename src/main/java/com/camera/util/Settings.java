@@ -16,7 +16,7 @@ public class Settings {
         InputStream input = null;
 
         String userDataVar = System.getenv("SNAP_USER_DATA");
-        File userDataFile = new File(((userDataVar != null) ? userDataVar : "") + File.pathSeparator + "application.properties");
+        File userDataFile = new File(((userDataVar != null) ? userDataVar : "") + File.separator + "application.properties");
         try {
             if (userDataVar != null && !userDataVar.isEmpty() && userDataFile.exists()) {
                 input = new FileInputStream(userDataFile);
