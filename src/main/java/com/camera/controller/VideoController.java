@@ -138,7 +138,7 @@ public class VideoController extends VBox {
 		//panel.setFPSDisplayed(true);
 		//panel.setDisplayDebugInfo(true);
 		//panel.setImageSizeDisplayed(true);
-		//panel.setMirrored(true);
+		panel.setMirrored(true);
 		swingNode.setContent(panel);
 	}
 
